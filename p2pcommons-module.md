@@ -1,4 +1,4 @@
-# Module specifications v0.1.0
+# Module specifications v0.1.1
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -61,11 +61,11 @@ The JSON object in `dat.json` MUST contain the name/value pairs
 `title`, `description`, `url`, `type`, `main`, and
 `license`.
 
-If `type: module`, the JSON object MUST include the name/value
+If `type: content`, the JSON object MUST include the name/value
 pairs `authors` and `parents`.
 
 If `type: profile`, the JSON object MUST include the name/value
-pairs `follows` and `modules`. 
+pairs `follows` and `contents`. 
 
 For legibility and consistency across implementations, the ordering of
 the name/value is RECOMMENDED to be in the order presented in the
@@ -85,13 +85,13 @@ conditions are specified per name.
 | `title`       | string           |                                                                                                     |
 | `description` | string           |                                                                                                     |
 | `url`         | string           | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
-| `type`        | string           | [`(profile OR module)$`](https://regex101.com/r/RRKb5N/1)                                              |
+| `type`        | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                              |
 | `main`        | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                             |
 | `license`     | string, object   |                                                                                                     |
 | `authors`     | array of strings | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
 | `parents`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)$`](https://regex101.com/r/naEFVg/3)                                   |
 | `follows`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
-| `modules`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
+| `contents`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 
 `title` and `description` MUST be strings, although those strings MAY
 be empty (`''`; see also [Registration](#registration)). 
@@ -99,7 +99,7 @@ be empty (`''`; see also [Registration](#registration)).
 `url` MUST be a string containing the non-versioned Dat archive key
 equivalent to the Dat archive key of the module itself.
 
-`type` MUST be a string ending in either `module` or `profile`. This
+`type` MUST be a string ending in either `content` or `profile`. This
 way, it MAY be prefixed by application or user-specific
 strings. 
 
@@ -117,14 +117,14 @@ code](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 <!-- nesting makes it compatible with Beaker woo
 https://beakerbrowser.com/docs/apis/manifest.html -->
 
-`authors` (specific to `type: module`) MUST be an array of strings
+`authors` (specific to `type: content`) MUST be an array of strings
 containing non-versioned Dat archive keys. These Dat archive keys
 SHOULD each refer to a valid module of `type: profile` (see also
 [Verification](#verification)).
 
-`parents` (specific to `type: module`) MUST be an array of strings
+`parents` (specific to `type: content`) MUST be an array of strings
 containing versioned Dat archive keys. These versioned Dat archive
-keys SHOULD each refer to a valid module of `type: module`.
+keys SHOULD each refer to a valid module of `type: content`.
 <!-- it is RECOMMENDED to only allow verified parents? -->
 
 `follows` (specific to `type: profile`) MUST be an array of strings
@@ -132,19 +132,18 @@ containing Dat archive keys and MAY be versioned (freeze
 follow). These Dat archive keys SHOULD each refer to a valid module of
 `type: profile`.
 
-`modules` (specific to `type: profile`) MUST be an array of strings
+`contents` (specific to `type: profile`) MUST be an array of strings
 containing Dat archive keys that SHOULD be versioned but MAY be
 non-versioned (public drafts). These Dat archive keys SHOULD each
-refer to a valid module of `type: module`.
+refer to a valid module of `type: content`.
 
 ## Registration
 
-To register an origin module, it MUST be of `type: module`. The
-destination module MUST be of `type: profile`.
+Registered modules must be of `type: content` and MUST be registered
+to modules of `type: profile`.
 
-The destination module MUST be a Dat archive that the user can write
-to. The metadata of the destination module SHOULD be valid prior to
-registration.
+The destination module MUST valid and writable. The metadata of the
+destination module SHOULD be valid prior to registration.
 
 Registration MUST result in the addition of a valid Dat archive key to
 the `modules` property of the destination module. The registered Dat
@@ -160,7 +159,7 @@ also [Verification](#verification)).
 
 ## Verification
 
-The origin module to verify MUST be of `type: module` and
+The origin module to verify MUST be of `type: content` and
 verification MUST occur on a specific version (i.e., versioned Dat
 archive key).<!--  Non-versioned origin modules MUST be deemed  -->
 <!-- unverifiable. -->
