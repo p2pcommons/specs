@@ -9,7 +9,7 @@ referenced for more conceptual information.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.0`. This specification formulates bare minimum specifications to
+`v0.1.1`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
