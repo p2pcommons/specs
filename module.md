@@ -58,7 +58,7 @@ Each module MUST contain a `dat.json` file in its top directory
 array of JSON objects.
 
 The JSON object in `dat.json` MUST contain the name/value pairs
-`title`, `description`, `url`, `type`, `modType`, `main`, and
+`title`, `description`, `url`, `type`, `subtype`, `main`, and
 `license`.
 
 If `type: content`, the JSON object MUST include the name/value
@@ -86,7 +86,7 @@ conditions are specified per name.
 | `description` | string           |                                                                                                     |
 | `url`         | string           | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
 | `type`        | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                              |
-| `modType`        | string           | [^\w+$](https://regex101.com/r/hDRGfc/1)                                              |
+| `subtype`        | string           | [^\w+$](https://regex101.com/r/hDRGfc/1)                                              |
 | `main`        | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                             |
 | `license`     | string, object   |                                                                                                     |
 | `authors`     | array of strings | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
@@ -102,7 +102,7 @@ equivalent to the Dat archive key of the module itself.
 
 `type` MUST be a string containing either `content` or `profile`.
 
-`modType` MAY be an empty string, but MUST NOT be a string that includes characters beyond the standard alphanumeric set (e.g., hyphens, colons, etc). These MAY be application specific, but it is RECOMMENDED to use WikiData identifiers for consistent disambiguation. <!-- maybe start compiling an easy to use database for this -->
+`subtype` MAY be an empty string, but MUST NOT be a string that includes characters beyond the standard alphanumeric set (e.g., hyphens, colons, etc). These MAY be application specific, but it is RECOMMENDED to use WikiData identifiers for consistent disambiguation. <!-- maybe start compiling an easy to use database for this -->
 
 `main` MUST be a string containing a relative path but MUST NOT refer
 to a relative home or relative parent directory. The relative path
