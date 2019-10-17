@@ -1,4 +1,4 @@
-# Module specifications v0.1.1
+# Module specifications v0.1.2
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -9,7 +9,7 @@ referenced for more conceptual information.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.1`. This specification formulates bare minimum specifications to
+`v0.1.2`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -58,7 +58,7 @@ Each module MUST contain a `dat.json` file in its top directory
 array of JSON objects.
 
 The JSON object in `dat.json` MUST contain the name/value pairs
-`title`, `description`, `url`, `type`, `main`, and
+`title`, `description`, `url`, `type`, `subtype`, `main`, and
 `license`.
 
 If `type: content`, the JSON object MUST include the name/value
@@ -86,6 +86,7 @@ conditions are specified per name.
 | `description` | string           |                                                                                                     |
 | `url`         | string           | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
 | `type`        | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                              |
+| `subtype`        | string           | [^\w+$](https://regex101.com/r/hDRGfc/1)                                              |
 | `main`        | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                             |
 | `license`     | string, object   |                                                                                                     |
 | `authors`     | array of strings | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
@@ -99,9 +100,9 @@ be empty (`''`; see also [Registration](#registration)).
 `url` MUST be a string containing the non-versioned Dat archive key
 equivalent to the Dat archive key of the module itself.
 
-`type` MUST be a string ending in either `content` or `profile`. This
-way, it MAY be prefixed by application or user-specific
-strings. 
+`type` MUST be a string containing either `content` or `profile`.
+
+`subtype` MAY be an empty string, but MUST NOT be a string that includes characters beyond the standard alphanumeric set (e.g., hyphens, colons, etc). These MAY be application specific, but it is RECOMMENDED to use WikiData identifiers for consistent disambiguation. <!-- maybe start compiling an easy to use database for this -->
 
 `main` MUST be a string containing a relative path but MUST NOT refer
 to a relative home or relative parent directory. The relative path
