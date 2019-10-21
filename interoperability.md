@@ -1,6 +1,6 @@
 # Interoperability specification v0.1.0
 
-This document outlines specifications for module storage and indexing to achieve an interoperable application layer. This standardizes the way 
+This document outlines specifications for module storage and indexing to achieve an interoperable application layer. This standardizes the way
 information from the peer-to-peer commons is cached on a device, such that applications may be used interchangeably. For instance, a command line interface and a desktop
 application may be available; this specification makes changing between the two (or more) applications seamless and efficient.
 
@@ -24,13 +24,13 @@ All information described in this specification MUST be stored in the folder `~/
 
 ## Caching modules
 
-An active module MUST be cached in a folder that indicates its own Dat archive key (i.e., `~/.p2pcommons/<hash>`). 
+An active module MUST be cached in a folder that indicates its own Dat archive key (i.e., `~/.p2pcommons/<hash>`).
 
 An active versioned module MUST be cached in a folder that indicates its own Dat archive key and its version (i.e., `~/.p2pcommons/<hash>+<version>`). This folder tree MUST be read-only.
 
 ## Global settings
 
-Settings MUST be stored in `~/.p2pcommons/settings.json`, in a valid JSON object. 
+Settings MUST be stored in `~/.p2pcommons/settings.json`, in a valid JSON object.
 
 The JSON object may contain the following type/name value pairs:
 
@@ -47,3 +47,91 @@ Default values are RECOMMENDED values to harmonize operations between applicatio
 ## Indexing modules
 
 Module metadata MUST be indexed into one valid JSON object in the file `~/.p2pcommons/index.json`.
+
+## DB Schemas
+
+Currently we are using [avro schemas](https://avro.apache.org/docs/1.8.1/spec.html) for validation, storing and possibly transmition of the items stored in the local db.
+
+The following schemas try to mimic and being 100% compatible with the modules spec [values and names section](modules.md#namevalues).
+
+### Content schema:
+```json
+{
+  "name": "Content",
+  "namespace": "P2PCommons",
+  "type": "record",
+  "fields": [
+    {"name": "title", "type": "string"},
+    {"name": "description", "type": "string"},
+    {"name": "url", "type": "bytes"},
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "symbols": ["content", "profile"]
+      }
+    },
+    {"name": "subtype", "type": "string"},
+    {"name": "main", "type": "string"},
+    {"name": "license", "type": "string"},
+    {
+      "name": "authors",
+      "type": {
+        "type": "array",
+        "items": "bytes"
+      },
+      "default": []
+    },
+    {
+      "name": "parents",
+      "type": {
+        "type": "array",
+        "items": "bytes"
+      },
+      "default": []
+    }
+  ]
+}
+```
+
+### Profile schema:
+```json
+{
+  "name": "Profile",
+  "namespace": "P2PCommons",
+  "type": "record",
+  "fields": [
+    {"name": "title", "type": "string"},
+    {"name": "description", "type": "string"},
+    {"name": "url", "type": "bytes"},
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "symbols": ["content", "profile"]
+      }
+    },
+    {"name": "subtype", "type": "string"},
+    {"name": "main", "type": "string"},
+    {"name": "license", "type": "string"},
+    {
+      "name": "follows",
+      "type": {
+        "type": "array",
+        "items": "bytes"
+      },
+      "default": []
+    },
+    {
+      "name": "contents",
+      "type": {
+        "type": "array",
+        "items": "bytes"
+      },
+      "default": []
+    }
+  ]
+}
+```
+
+Note: you can follow the latest schema updates on the [sdk-js schemas folder](https://github.com/p2pcommons/sdk-js/tree/master/schemas)
