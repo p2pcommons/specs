@@ -1,4 +1,4 @@
-# Interoperability specification v0.1.0
+# Interoperability specification v0.2.0
 
 This document outlines specifications for module storage and indexing to achieve an interoperable application layer. This standardizes the way
 information from the peer-to-peer commons is cached on a device, such that applications may be used interchangeably. For instance, a command line interface and a desktop
@@ -6,7 +6,7 @@ application may be available; this specification makes changing between the two 
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.0`. This specification may change fundamentally over time, but always with due notice.
+`v0.2.0`. This specification may change fundamentally over time, but always with due notice.
 
 This document is available under the [CC0 Public Domain
 Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
@@ -48,13 +48,14 @@ Default values are RECOMMENDED values to harmonize operations between applicatio
 
 Module metadata MUST be indexed into one valid JSON object in the file `~/.p2pcommons/index.json`.
 
-## DB Schemas
+## Database Schemas
 
-Currently we are using [avro schemas](https://avro.apache.org/docs/1.8.1/spec.html) for validation, storing and possibly transmition of the items stored in the local db.
+[avro schemas](https://avro.apache.org/docs/1.8.1/spec.html) are used for validation, storing and possibly transmition of the items stored in the local db.
 
 The following schemas try to mimic and being 100% compatible with the modules spec [values and names section](modules.md#namevalues).
 
-### Content schema:
+### Content schema
+
 ```json
 {
   "name": "Content",
@@ -94,7 +95,8 @@ The following schemas try to mimic and being 100% compatible with the modules sp
 }
 ```
 
-### Profile schema:
+### Profile schema
+
 ```json
 {
   "name": "Profile",
