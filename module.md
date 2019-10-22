@@ -1,4 +1,4 @@
-# Module specifications v0.1.2
+# Module specifications v0.1.3
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -9,7 +9,7 @@ referenced for more conceptual information.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.2`. This specification formulates bare minimum specifications to
+`v0.1.3`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -143,11 +143,11 @@ refer to a valid module of `type: content`.
 Registered modules must be of `type: content` and MUST be registered
 to modules of `type: profile`.
 
-The destination module MUST valid and writable. The metadata of the
+The destination module MUST be valid and writable. The metadata of the
 destination module SHOULD be valid prior to registration.
 
 Registration MUST result in the addition of a valid Dat archive key to
-the `modules` property of the destination module. The registered Dat
+the `contents` property of the destination module. The registered Dat
 archive key MUST be that of the specified origin module.
 
 Registration MUST NOT occur when the origin module contains invalid
@@ -177,7 +177,7 @@ A version specific origin module MUST be deemed verified when all its
 their `modules` property. 
 
 <!-- When not all destination modules include the versioned origin module -->
-<!-- in their `modules` property,  -->
+<!-- in their `contents` property,  -->
 
 Due to the peer-to-peer nature of the Dat protocol and its
 cryptographic signing, this two-way verification is the highest degree
