@@ -1,4 +1,4 @@
-# Interoperability specification v0.2.0
+# Interoperability specification v0.2.1
 
 This document outlines specifications for module storage and indexing to achieve an interoperable application layer. This standardizes the way
 information from the peer-to-peer commons is cached on a device, such that applications may be used interchangeably. For instance, a command line interface and a desktop
@@ -6,7 +6,7 @@ application may be available; this specification makes changing between the two 
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.0`. This specification may change fundamentally over time, but always with due notice.
+`v0.2.1`. This specification may change fundamentally over time, but always with due notice.
 
 This document is available under the [CC0 Public Domain
 Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
@@ -38,7 +38,7 @@ The JSON object may contain the following type/name value pairs:
 |-----------------|---------|----------|---------------------------------------------------------------------------------------------------------------------------------|
 | network-depth   | integer | 2        | -                                                                                                                               |
 | default-profile | string  | -        | 64 character hash referring to writable module of `type: profile`                                                               |
-| keys            | string  | `~/.dat` | Location of Dat keys                                                                                                            |
+| keys            | string  | `~/.dat` | Location of **private** Dat keys                                                                                                            |
 | sparse          | boolean | true     |  [Hyperdrive option for sparse replication](https://github.com/mafintosh/hyperdrive#var-archive--hyperdrivestorage-key-options) |
 | sparseMetadata  | boolean | true     | Hyperdrive option for sparse metadata replication                                                                               |
 
