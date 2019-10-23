@@ -1,4 +1,4 @@
-# Module specifications v0.1.3
+# Module specifications v0.1.4
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -9,7 +9,7 @@ referenced for more conceptual information.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.3`. This specification formulates bare minimum specifications to
+`v0.1.4`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -94,7 +94,7 @@ conditions are specified per name.
 | `follows`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 | `contents`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 
-`title` and `description` MUST be strings, although those strings MAY
+`title` and `description` MUST be strings/ `title` MUST contain a string and `description` MAY
 be empty (`''`; see also [Registration](#registration)). 
 
 `url` MUST be a string containing the non-versioned Dat archive key
