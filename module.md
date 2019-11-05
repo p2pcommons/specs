@@ -1,4 +1,4 @@
-# Module specifications v0.1.4
+# Module specifications v0.1.5
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -9,7 +9,7 @@ referenced for more conceptual information.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.4`. This specification formulates bare minimum specifications to
+`v0.1.5`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -94,7 +94,7 @@ conditions are specified per name.
 | `follows`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 | `contents`     | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 
-`title` and `description` MUST be strings/ `title` MUST contain a string and `description` MAY
+`title` and `description` MUST be strings. `title` MUST contain a string and `description` MAY
 be empty (`''`; see also [Registration](#registration)). 
 
 `url` MUST be a string containing the non-versioned Dat archive key
@@ -102,12 +102,12 @@ equivalent to the Dat archive key of the module itself.
 
 `type` MUST be a string containing either `content` or `profile`.
 
-`subtype` MAY be an empty string, but MUST NOT be a string that includes characters beyond the standard alphanumeric set (e.g., hyphens, colons, etc). These MAY be application specific, but it is RECOMMENDED to use WikiData identifiers for consistent disambiguation. <!-- maybe start compiling an easy to use database for this -->
+`subtype` MAY be an empty string, but MUST NOT be a string that includes characters beyond the standard alphanumeric set (e.g., hyphens, colons, etc). These MAY be application specific, but it is RECOMMENDED to use WikiData item identifiers for consistent disambiguation. <!-- maybe start compiling an easy to use database for this -->
 
 `main` MUST be a string containing a relative path but MUST NOT refer
 to a relative home or relative parent directory. The relative path
 SHOULD refer to a valid relative file within the Dat archive (see also
-[Registration](#registration)).
+[Registration](#registration)). The `./` part of a relative path MAY be included.
 
 `license` MUST be a string referring to the CC0 1.0 Public Domain
 Dedication and MAY be nested in another name/value pair. This
