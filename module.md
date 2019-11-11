@@ -1,4 +1,4 @@
-# Module specifications v0.1.5
+# Module specifications v0.1.6
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -9,7 +9,7 @@ referenced for more conceptual information.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.1.5`. This specification formulates bare minimum specifications to
+`v0.1.6`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -30,7 +30,7 @@ specification.
 
 A Dat archive is initialized when it contains a valid
 [Hyperdrive](https://github.com/mafintosh/hyperdrive/) and has a valid
-Dat archive key (64 character hash). 
+Dat archive key (64 character hash). We utilize Hyperdrive `v10` cores.
 
 In general, Dat archive keys in this specification MAY be prefixed by
 the protocol indicator `dat://`, and MAY be suffixed by `+{vers}`
