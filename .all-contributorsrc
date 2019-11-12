@@ -22,6 +22,17 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "juliangruber",
+      "name": "Julian Gruber",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10247?v=4",
+      "profile": "http://twitter.com/juliangruber/",
+      "contributions": [
+        "ideas",
+        "bug",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
