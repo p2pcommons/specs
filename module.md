@@ -60,8 +60,8 @@ Each module MUST contain a `dat.json` file in its top directory
 
 ### Object structure
 
-`dat.json` MUST be a valid singular object and MUST NOT be an array of
-objects.
+`dat.json` MUST be valid JSON consisting of a singular object and MUST 
+NOT be an array of objects. 
 
 The `dat.json` object MUST contain the key/value pairs `title`,
 `description`, `url`, `links`, `p2pcommons`.
