@@ -206,7 +206,7 @@ of trust that is implemented in this specification.
 }
 ```
 
-### `p2pcommons.content === 'profile'`
+### `p2pcommons.type === 'profile'`
 
 ```js
 {
