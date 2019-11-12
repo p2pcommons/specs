@@ -185,7 +185,7 @@ of trust that is implemented in this specification.
 
 ## Examples
 
-### `p2pcommons.content === 'content'`
+### `p2pcommons.type === 'content'`
 
 ```js
 {
