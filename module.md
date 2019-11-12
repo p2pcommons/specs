@@ -20,7 +20,7 @@ Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
 document are used as described in [RFC
-2119](https://www.ietf.org/rfc/rfc2119.txt).
+2119](https://www.ietf.org/rfc/rfc2119.txt). Examples of up-to-specification metadata are included in the [Examples](#examples) section.
 
 ## Initialization
 
@@ -183,3 +183,46 @@ of trust that is implemented in this specification.
 <!-- + It is non-breaking to loosen conditions or to add properties later on, so I erred on the side of strictness and parsimony -->
 <!-- + I am being non-specific about Dat protocol requirements to allow for flexibility down the line? I mean, I -->
 
+## Examples
+
+### `p2pcommons.content === 'content'`
+
+```js
+{
+  "title": "Content example",
+  "description": "",
+  "url": "00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
+  "links": {
+     "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
+     "spec": [{"href": "https://p2pcommons/specs/module/0.2.0"}]
+  },
+  "p2pcommons": {
+    "type": "content",
+    "subtype": "",
+    "main": "test-content.html",
+    "authors": [],
+    "parents": []
+  }
+}
+```
+
+### `p2pcommons.content === 'profile'`
+
+```js
+{
+  "title": "Profile example",
+  "description": "",
+  "url": "00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
+  "links": {
+     "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
+     "spec": [{"href": "https://p2pcommons/specs/module/0.2.0"}]
+  },
+  "p2pcommons": {
+    "type": "profile",
+    "subtype": "",
+    "main": "test-profile.html",
+    "follows": [],
+    "contents": []
+  }
+}
+```
