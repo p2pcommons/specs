@@ -6,6 +6,13 @@ This repository contains all the peer-to-peer (🍐-to-🍐) commons specificati
 
 :warning: **Work In Progress; NOT STABLE YET**
 
+## Overview
+
+| Specification | Version |
+| --- | --- |
+| [Module](./module.md) | `v0.2.0` |
+| [Interoperability](./interoperability.md) | `v0.2.1` | 
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
