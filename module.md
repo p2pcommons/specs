@@ -170,7 +170,7 @@ Registered modules must be of `p2pcommons.type: content` (i.e., origin
 module) and MUST be registered to modules of `p2pcommons.type:
 profile` (i.e., destination module).
 
-The destination module MUST be valid and writable. The metadata of the
+The destination module MUST be valid and writable. The `p2pcommons.main` MUST refer to an existing path. The metadata of the
 destination module SHOULD be valid prior to registration.
 
 Registration MUST result in the addition of a valid Dat archive key to
@@ -217,6 +217,8 @@ allow for flexibility down the line? I mean, I -->
 
 ## Examples
 
+The links used in the examples do not work and serve illustrative purposes only.
+
 ### `p2pcommons.type === 'content'`
 
 ```js
@@ -232,8 +234,14 @@ allow for flexibility down the line? I mean, I -->
     "type": "content",
     "subtype": "",
     "main": "test-content.html",
-    "authors": [],
-    "parents": []
+    "authors": [
+      "cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
+      "f7daadc2d624df738abbccc9955714d94cef656406f2a850bfc499c2080627d4"
+    ],
+    "parents": [
+      "f0abcd6b1c4fc524e2d48da043b3d8399b96d9374d6606fca51182ee230b6b59+12",
+      "527f404aa77756b91cba4e3ba9fe30f72ee3eb5eef0f4da87172745f9389d1e5+4032"
+    ]
   }
 }
 ```
@@ -244,7 +252,7 @@ allow for flexibility down the line? I mean, I -->
 {
   "title": "Profile example",
   "description": "",
-  "url": "00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
+  "url": "cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
      "spec": [{"href": "https://p2pcommons/specs/module/0.2.0"}]
@@ -253,8 +261,12 @@ allow for flexibility down the line? I mean, I -->
     "type": "profile",
     "subtype": "",
     "main": "test-profile.html",
-    "follows": [],
-    "contents": []
+    "follows": [
+      "f7daadc2d624df738abbccc9955714d94cef656406f2a850bfc499c2080627d4"
+    ],
+    "contents": [
+      "00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23+12"
+    ]
   }
 }
 ```
