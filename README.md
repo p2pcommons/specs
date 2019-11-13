@@ -1,6 +1,10 @@
-# specs
+# 🍐-to-🍐 commons specifications
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
-All the specs written by the Liberate Science community
+
+This repository contains all the peer-to-peer (🍐-to-🍐) commons specifications. These aim to make an interoperable commons infrastructure for module-based communication. This is the framework for implementations such as software development kits (see the [JavaScript implementation here](https://github.com/p2pcommons/sdk-js)) and user-facing applications like [Hypergraph](https://github.com/hypergraph-xyz/cli).
+
+:warning: **Work In Progress; NOT STABLE YET**
 
 ## Contributors ✨
 
