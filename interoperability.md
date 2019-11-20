@@ -1,4 +1,4 @@
-# Interoperability specification v0.2.1
+# Interoperability specification v0.2.2
 
 This document outlines specifications for module storage and indexing to achieve an interoperable application layer. This standardizes the way
 information from the peer-to-peer commons is cached on a device, such that applications may be used interchangeably. For instance, a command line interface and a desktop
@@ -6,7 +6,7 @@ application may be available; this specification makes changing between the two 
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.1`. This specification may change fundamentally over time, but always with due notice.
+`v0.2.2`. This specification may change fundamentally over time, but always with due notice.
 
 This document is available under the [CC0 Public Domain
 Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
@@ -52,7 +52,7 @@ Module metadata MUST be indexed into one valid JSON object in the file `~/.p2pco
 
 [avro schemas](https://avro.apache.org/docs/1.8.1/spec.html) are used for validation, storing and possibly transmition of the items stored in the local db.
 
-The following schemas try to mimic and being 100% compatible with the modules spec [values and names section](modules.md#namevalues).
+The following schemas try to mimic and being 100% compatible with the modules spec [values and names section](modules.md#namevalues). Note: you can follow the latest schema updates on the [sdk-js schemas folder](https://github.com/p2pcommons/sdk-js/tree/master/schemas)
 
 ### Content schema
 
@@ -62,37 +62,102 @@ The following schemas try to mimic and being 100% compatible with the modules sp
   "namespace": "P2PCommons",
   "type": "record",
   "fields": [
-    {"name": "title", "type": "string"},
-    {"name": "description", "type": "string"},
-    {"name": "url", "type": "bytes"},
     {
-      "name": "type",
+      "name": "title",
       "type": {
-        "type": "enum",
-        "symbols": ["content", "profile"]
+        "type": "string",
+        "logicalType": "required-string"
       }
     },
-    {"name": "subtype", "type": "string"},
-    {"name": "main", "type": "string"},
-    {"name": "license", "type": "string"},
+    {"name": "description", "type": "string"},
     {
-      "name": "authors",
+      "name": "url",
       "type": {
-        "type": "array",
-        "items": "bytes"
-      },
-      "default": []
+        "type": "string",
+        "logicalType": "dat-url"
+      }
     },
     {
-      "name": "parents",
+      "name": "links",
       "type": {
-        "type": "array",
-        "items": "bytes"
-      },
-      "default": []
+        "namespace": "P2PCommons",
+        "type": "record",
+        "fields": [
+          {
+            "name": "license",
+            "type": {
+              "type": "array",
+              "items" : {
+                "type": "record",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "href"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "spec",
+            "type": {
+              "type": "array",
+              "items" : {
+                "type": "record",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "href"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "p2pcommons",
+      "type": {
+        "type": "record",
+        "fields": [
+          {
+            "name": "type",
+            "type": {
+              "type": "enum",
+              "symbols": ["content", "profile"]
+            }
+          },
+          {"name": "subtype", "type": "string"},
+          {"name": "main", "type": "string"},
+          {
+            "name": "authors",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "logicalType": "dat-url"
+              }
+            },
+            "default": []
+          },
+          {
+            "name": "parents",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "logicalType": "dat-versioned-url"
+              }
+            },
+            "default": []
+          }
+        ]
+      }
     }
   ]
 }
+
 ```
 
 ### Profile schema
@@ -103,37 +168,100 @@ The following schemas try to mimic and being 100% compatible with the modules sp
   "namespace": "P2PCommons",
   "type": "record",
   "fields": [
-    {"name": "title", "type": "string"},
-    {"name": "description", "type": "string"},
-    {"name": "url", "type": "bytes"},
     {
-      "name": "type",
+      "name": "title",
       "type": {
-        "type": "enum",
-        "symbols": ["content", "profile"]
+        "type": "string",
+        "logicalType": "required-string"
       }
     },
-    {"name": "subtype", "type": "string"},
-    {"name": "main", "type": "string"},
-    {"name": "license", "type": "string"},
+    {"name": "description", "type": "string"},
     {
-      "name": "follows",
+      "name": "url",
       "type": {
-        "type": "array",
-        "items": "bytes"
-      },
-      "default": []
+        "type": "string",
+        "logicalType": "dat-url"
+      }
     },
     {
-      "name": "contents",
+      "name": "links",
       "type": {
-        "type": "array",
-        "items": "bytes"
-      },
-      "default": []
+        "namespace": "P2PCommons",
+        "type": "record",
+        "fields": [
+          {
+            "name": "license",
+            "type": {
+              "type": "array",
+              "items" : {
+                "type": "record",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "href"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "spec",
+            "type": {
+              "type": "array",
+              "items" : {
+                "type": "record",
+                "fields": [
+                  {
+                    "type": "string",
+                    "name": "href"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "p2pcommons",
+      "type": {
+        "type": "record",
+        "fields": [
+          {
+            "name": "type",
+            "type": {
+              "type": "enum",
+              "symbols": ["content", "profile"]
+            }
+          },
+          {"name": "subtype", "type": "string"},
+          {"name": "main", "type": "string"},
+          {
+            "name": "follows",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "logicalType": "dat-versioned-url"
+              }
+            },
+            "default": []
+          },
+          {
+            "name": "contents",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "logicalType": "dat-versioned-url"
+              }
+            },
+            "default": []
+          }
+        ]
+      }
     }
   ]
 }
-```
 
-Note: you can follow the latest schema updates on the [sdk-js schemas folder](https://github.com/p2pcommons/sdk-js/tree/master/schemas)
+```
