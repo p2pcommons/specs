@@ -107,7 +107,7 @@ conditions are specified per name.
 | `p2pcommons.contents` | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 
 `title` and `description` MUST be strings. `title` MUST contain a
-string and `description` MAY be empty (`''`; see also
+string (max character length 300) and `description` MAY be empty (`''`; see also
 [Registration](#registration)).
 
 `url` MUST be a string containing the non-versioned Dat archive key
