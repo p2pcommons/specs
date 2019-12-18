@@ -1,4 +1,4 @@
-# Module specifications v0.2.1
+# Module specifications v0.2.2
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -12,7 +12,7 @@ types.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.1`. This specification formulates bare minimum specifications to
+`v0.2.2`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -76,7 +76,7 @@ specification](https://html.spec.whatwg.org/multipage/semantics.html#the-link-el
 `main`. If `p2pcommons.type: content`, the object MUST include the
 key/value pairs `authors` and `parents`. If `p2pcommons.type:
 profile`, the object MUST include the key/value pairs `follows` and
-`contents`.
+`contents`. It is RECOMMENDED to include the `p2pcommons.avatar` key/value pair.
 
 For legibility and consistency across implementations, the ordering of
 the key/value is RECOMMENDED to be in the order presented in the
@@ -101,6 +101,7 @@ conditions are specified per name.
 | `p2pcommons.type`     | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                          |
 | `p2pcommons.subtype`  | string           | [`^\w+$`](https://regex101.com/r/hDRGfc/1)                                                            |
 | `p2pcommons.main`     | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                       |
+| `p2pcommons.avatar`     | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                       |
 | `p2pcommons.authors`  | array of strings | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
 | `p2pcommons.parents`  | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)$`](https://regex101.com/r/naEFVg/3)                                   |
 | `p2pcommons.follows`  | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
@@ -139,6 +140,12 @@ this -->
 `p2pcommons.main` MUST be a string containing one relative path but MUST
 NOT refer to a relative home or relative parent directory. The
 relative path SHOULD refer to a valid relative file within the Dat
+archive (see also [Registration](#registration)). The `./` part of a
+relative path MAY be included.
+
+If included, `p2pcommons.avatar` MUST be a string containing one relative path but MUST
+NOT refer to a relative home or relative parent directory. The
+relative path SHOULD refer to a valid relative image file within the Dat
 archive (see also [Registration](#registration)). The `./` part of a
 relative path MAY be included.
 
