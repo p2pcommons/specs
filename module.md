@@ -143,7 +143,7 @@ relative path SHOULD refer to a valid relative file within the Dat
 archive (see also [Registration](#registration)). The `./` part of a
 relative path MAY be included.
 
-If included, `p2pcommons.avatar` MUST be a string containing one relative path but MUST
+If included, `p2pcommons.avatar` MUST be a string containing one relative path not pointing outside the module folder
 NOT refer to a relative home or relative parent directory. The
 relative path SHOULD refer to a valid image file within the Dat
 archive (see also [Registration](#registration)). The `./` part of a
