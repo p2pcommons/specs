@@ -150,25 +150,25 @@ archive (see also [Registration](#registration)). The `./` part of a
 relative path MAY be included.
 
 `p2pcommons.authors` (specific to `p2pcommons.type: content`) MUST be
-a unique array of strings containing non-versioned Dat archive keys. These
+an array of unique strings containing non-versioned Dat archive keys. These
 Dat archive keys SHOULD each refer to a valid module of
 `p2pcommons.type: profile` (see also [Verification](#verification)).
 
 `p2pcommons.parents` (specific to `p2pcommons.type: content`) MUST be
-a unique array of strings containing versioned Dat archive keys. These
+an array of unique strings containing versioned Dat archive keys. These
 versioned Dat archive keys SHOULD each refer to a valid module of
 `p2pcommons.type: content` and MUST NOT contain this module's
 own Dat archive key.
 <!-- it is RECOMMENDED to only allow verified parents? -->
 
 `p2pcommons.follows` (specific to `p2pcommons.type: profile`) MUST be
-a unique array of strings containing Dat archive keys and MAY be versioned
+an array of unique strings containing Dat archive keys and MAY be versioned
 (freeze follow). These Dat archive keys SHOULD each refer to a valid
 module of `type: profile` and MUST NOT contain this module's
 own Dat archive key.
 
 `p2pcommons.contents` (specific to `p2pcommons.type: profile`) MUST be
-a unique array of strings containing Dat archive keys that SHOULD be
+an array of unique strings containing Dat archive keys that SHOULD be
 versioned but MAY be non-versioned (public drafts). These Dat archive
 keys SHOULD each refer to a valid module of `p2pcommons.type:
 content`.
