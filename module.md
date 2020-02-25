@@ -157,9 +157,8 @@ Dat archive keys SHOULD each refer to a valid module of
 `p2pcommons.parents` (specific to `p2pcommons.type: content`) MUST be
 an array of unique strings containing versioned Dat archive keys. These
 versioned Dat archive keys SHOULD each refer to a valid module of
-`p2pcommons.type: content`. This array MAY contain this module's
-Dat archive key at an older version, but MUST NOT contain this module's
-own unversioned or current-version Dat archive key.
+`p2pcommons.type: content` and MUST NOT contain this module's
+own Dat archive key at its latest version.
 <!-- it is RECOMMENDED to only allow verified parents? -->
 
 `p2pcommons.follows` (specific to `p2pcommons.type: profile`) MUST be
