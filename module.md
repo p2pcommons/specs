@@ -1,4 +1,4 @@
-# Module specifications v0.2.2
+# Module specifications v0.2.3
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -12,7 +12,7 @@ types.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.2`. This specification formulates bare minimum specifications to
+`v0.2.3`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -125,7 +125,7 @@ https://beakerbrowser.com/docs/apis/manifest.html -->
 
 `links.spec` MUST contain an object in an array with key/value pair
 `href` referring to the active module specification URL (e.g.,
-`https://p2pcommons.com/specs/module/0.2.2`).
+`https://p2pcommons.com/specs/module/0.2.3`).
 
 `p2pcommons.type` MUST be a string containing either `content` or
 `profile`.
@@ -143,29 +143,32 @@ relative path SHOULD refer to a valid relative file within the Dat
 archive (see also [Registration](#registration)). The `./` part of a
 relative path MAY be included.
 
-If included, `p2pcommons.avatar` MUST be a string containing one relative path that MUST NOT refer to a relative home or relative parent directory. The
+If included, `p2pcommons.avatar` MUST be a string containing one relative path
+that MUST NOT refer to a relative home or relative parent directory. The
 relative path SHOULD refer to a valid image file within the Dat
 archive (see also [Registration](#registration)). The `./` part of a
 relative path MAY be included.
 
 `p2pcommons.authors` (specific to `p2pcommons.type: content`) MUST be
-an array of strings containing non-versioned Dat archive keys. These
+an array of unique strings containing non-versioned Dat archive keys. These
 Dat archive keys SHOULD each refer to a valid module of
 `p2pcommons.type: profile` (see also [Verification](#verification)).
 
 `p2pcommons.parents` (specific to `p2pcommons.type: content`) MUST be
-an array of strings containing versioned Dat archive keys. These
+an array of unique strings containing versioned Dat archive keys. These
 versioned Dat archive keys SHOULD each refer to a valid module of
-`p2pcommons.type: content`.  <!-- it is RECOMMENDED to only allow
-verified parents? -->
+`p2pcommons.type: content`. If it contains this module's own Dat archive
+key, it MUST refer to a preceding version.
+<!-- it is RECOMMENDED to only allow verified parents? -->
 
 `p2pcommons.follows` (specific to `p2pcommons.type: profile`) MUST be
-an array of strings containing Dat archive keys and MAY be versioned
+an array of unique strings containing Dat archive keys and MAY be versioned
 (freeze follow). These Dat archive keys SHOULD each refer to a valid
-module of `type: profile`.
+module of `type: profile` and MUST NOT contain this module's
+own Dat archive key.
 
 `p2pcommons.contents` (specific to `p2pcommons.type: profile`) MUST be
-an array of strings containing Dat archive keys that SHOULD be
+an array of unique strings containing Dat archive keys that SHOULD be
 versioned but MAY be non-versioned (public drafts). These Dat archive
 keys SHOULD each refer to a valid module of `p2pcommons.type:
 content`.
