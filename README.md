@@ -10,8 +10,8 @@ This repository contains all the peer-to-peer (🍐-to-🍐) commons specificati
 
 | Specification | Version |
 | --- | --- |
-| [Module](./module.md) | `v0.2.1` |
-| [Interoperability](./interoperability.md) | `v0.2.1` | 
+| [Module](./module.md) | `v0.2.3` |
+| [Interoperability](./interoperability.md) | `v0.2.2` | 
 
 ## Contributors ✨
 
