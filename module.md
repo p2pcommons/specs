@@ -1,4 +1,4 @@
-# Module specifications v0.2.3
+# Module specifications v0.2.4
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -12,7 +12,7 @@ types.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.3`. This specification formulates bare minimum specifications to
+`v0.2.4`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -40,8 +40,8 @@ cores.
 
 In general, Dat archive keys in this specification MAY be prefixed by
 the protocol indicator `dat://`, and MAY be suffixed by `+{vers}`
-where `vers` is an integer denoting the Dat archive version. Trailing
-slashes SHOULD be omitted.
+where `vers` is an integer denoting the Dat archive version. 
+Trailing slashes SHOULD be omitted.
 
 When a new module is initialized, a new folder MUST be created and
 that folder SHOULD be initialized as a Dat archive. The folder MUST be
@@ -125,7 +125,7 @@ https://beakerbrowser.com/docs/apis/manifest.html -->
 
 `links.spec` MUST contain an object in an array with key/value pair
 `href` referring to the active module specification URL (e.g.,
-`https://p2pcommons.com/specs/module/0.2.3`).
+`https://p2pcommons.com/specs/module/0.2.4`).
 
 `p2pcommons.type` MUST be a string containing either `content` or
 `profile`.
@@ -150,28 +150,28 @@ archive (see also [Registration](#registration)). The `./` part of a
 relative path MAY be included.
 
 `p2pcommons.authors` (specific to `p2pcommons.type: content`) MUST be
-an array of unique strings containing non-versioned Dat archive keys. These
+an array of strings containing unique non-versioned Dat archive keys. These
 Dat archive keys SHOULD each refer to a valid module of
 `p2pcommons.type: profile` (see also [Verification](#verification)).
 
 `p2pcommons.parents` (specific to `p2pcommons.type: content`) MUST be
-an array of unique strings containing versioned Dat archive keys. These
+an array of strings containing unique versioned Dat archive keys. These
 versioned Dat archive keys SHOULD each refer to a valid module of
 `p2pcommons.type: content`. If it contains this module's own Dat archive
 key, it MUST refer to a preceding version.
 <!-- it is RECOMMENDED to only allow verified parents? -->
 
 `p2pcommons.follows` (specific to `p2pcommons.type: profile`) MUST be
-an array of unique strings containing Dat archive keys and MAY be versioned
+an array of strings containing unique Dat archive keys that MAY be versioned
 (freeze follow). These Dat archive keys SHOULD each refer to a valid
-module of `type: profile` and MUST NOT contain this module's
-own Dat archive key.
+module of `type: profile`, MUST NOT refer to this module's own Dat archive key
+at any version and MAY refer to multiple versions of the same Dat archive key.
 
 `p2pcommons.contents` (specific to `p2pcommons.type: profile`) MUST be
-an array of unique strings containing Dat archive keys that SHOULD be
+an array of strings containing unique Dat archive keys that SHOULD be
 versioned but MAY be non-versioned (public drafts). These Dat archive
 keys SHOULD each refer to a valid module of `p2pcommons.type:
-content`.
+content` and MAY refer to multiple versions of the same Dat archive key. 
 
 ## Registration
 
@@ -179,7 +179,8 @@ Registered modules must be of `p2pcommons.type: content` (i.e., origin
 module) and MUST be registered to modules of `p2pcommons.type:
 profile` (i.e., destination module).
 
-The destination module MUST be valid and writable. The `p2pcommons.main` MUST refer to an existing path. The metadata of the
+The destination module MUST be valid and writable. The `p2pcommons.main` 
+MUST refer to an existing path. The metadata of the
 destination module SHOULD be valid prior to registration.
 
 Registration MUST result in the addition of a valid Dat archive key to
