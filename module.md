@@ -1,4 +1,4 @@
-# Module specifications v0.2.4
+# Module specifications v0.2.5
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -12,7 +12,7 @@ types.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.4`. This specification formulates bare minimum specifications to
+`v0.2.5`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -93,7 +93,7 @@ conditions are specified per name.
 
 | name                  | value            | RECOMMENDED regex                                                                                   |
 | -------------         | ---------------- | --------------------------------------------------------------------------------------------------- |
-| `title`               | string           |                                                                                                     |
+| `title`               | string           | [`^(?!\s*$).{1,300}$`](https://regex101.com/r/q7SL6z/1)                                             |
 | `description`         | string           |                                                                                                     |
 | `url`                 | string           | [`^(dat:\/\/)?(\w{64})$`](https://regex101.com/r/naEFVg/2)                                          |
 | `links.license`       | array of objects |                                                                                                     |
@@ -108,7 +108,8 @@ conditions are specified per name.
 | `p2pcommons.contents` | array of strings | [`^(dat:\/\/)?(\w{64})(\+\d+)?$`](https://regex101.com/r/naEFVg/4)                                  |
 
 `title` and `description` MUST be strings. `title` MUST contain a
-string (max character length 300) and `description` MAY be empty (`''`; see also
+string between 1 and 300 characters long and MUST NOT consist only
+of whitespace characters. `description` MAY be empty (`''`; see also
 [Registration](#registration)).
 
 `url` MUST be a string containing the non-versioned Dat archive key
@@ -125,7 +126,7 @@ https://beakerbrowser.com/docs/apis/manifest.html -->
 
 `links.spec` MUST contain an object in an array with key/value pair
 `href` referring to the active module specification URL (e.g.,
-`https://p2pcommons.com/specs/module/0.2.4`).
+`https://p2pcommons.com/specs/module/0.2.5`).
 
 `p2pcommons.type` MUST be a string containing either `content` or
 `profile`.
