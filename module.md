@@ -1,4 +1,4 @@
-# Module specifications v0.2.6
+# Module specifications v0.2.7
 
 This document outlines specifications for module initialization,
 validation, registration, and verification on the Dat network. It is a
@@ -12,7 +12,7 @@ types.
 
 This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.6`. This specification formulates bare minimum specifications to
+`v0.2.7`. This specification formulates bare minimum specifications to
 reduce the risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
@@ -96,7 +96,7 @@ conditions are specified per name.
 | `links.license`       | array of objects |                                                                                                     |
 | `links.spec`          | array of objects |                                                                                                     |
 | `p2pcommons.type`     | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                          |
-| `p2pcommons.subtype`  | string           | [`^\w+$`](https://regex101.com/r/hDRGfc/1)                                                            |
+| `p2pcommons.subtype`  | string           | [`^\w*$`](https://regex101.com/r/hDRGfc/2)                                                            |
 | `p2pcommons.main`     | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                       |
 | `p2pcommons.avatar`     | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                       |
 | `p2pcommons.authors`  | array of strings | [`^(\w{64})$`](https://regex101.com/r/GQOim5/2)                                          |
@@ -124,7 +124,7 @@ https://beakerbrowser.com/docs/apis/manifest.html -->
 
 `links.spec` MUST contain an object in an array with key/value pair
 `href` referring to the active module specification URL (e.g.,
-`https://p2pcommons.com/specs/module/0.2.6`).
+`https://p2pcommons.com/specs/module/0.0.0`).
 
 `p2pcommons.type` MUST be a string containing either `content` or
 `profile`.
@@ -137,10 +137,10 @@ disambiguation. <!-- maybe start compiling an easy to use database for
 this -->
 
 `p2pcommons.main` MUST be a string containing one relative path but MUST
-NOT refer to a relative home or relative parent directory and MUST NOT refer to a dotfile (e.g., `./.example.json`). The
-relative path SHOULD refer to a valid relative file within the Hyperdrive
-(see also [Registration](#registration)). The `./` part of a relative path
-MAY be included.
+NOT refer to a relative home or relative parent directory and MUST NOT
+refer to a dotfile (e.g., `./.example.json`). The relative path SHOULD refer
+to a valid file within the Hyperdrive (see also [Registration](#registration)).
+The `./` part of a relative path MAY be included.
 
 If included, `p2pcommons.avatar` MUST be a string containing one relative path
 that MUST NOT refer to a relative home or relative parent directory. The
@@ -237,7 +237,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons/specs/module/0.2.6"}]
+     "spec": [{"href": "https://p2pcommons/specs/module/0.0.0"}]
   },
   "p2pcommons": {
     "type": "content",
@@ -264,7 +264,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons/specs/module/0.2.6"}]
+     "spec": [{"href": "https://p2pcommons/specs/module/0.0.0"}]
   },
   "p2pcommons": {
     "type": "profile",
