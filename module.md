@@ -1,7 +1,7 @@
-# Module specifications v0.2.7
+# Module specifications v0.3.0
 
-This document outlines specifications for module initialization,
-validation, registration, and verification on the Dat network. It is a
+This document outlines specifications for module [initialization](#initialization),
+[metadata validation](#metadata), [registration](#registration), [verification](#verification), and for [module files](#files). It is a
 derivative of previous peer-reviewed publications
 [[1](https://doi.org/10.3390/publications6020021),
 [2](https://doi.org/10.3390/publications7020040)] that may be
@@ -11,9 +11,9 @@ This specification assumes a JavaScript environment in describing
 types.
 
 This specification is versioned using [Semantic Versioning
-2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}` and is now at
-`v0.2.7`. This specification formulates bare minimum specifications to
-reduce the risk of major, backwards incompatible changes. Please note
+2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}`. This 
+specification formulates bare minimum specifications to reduce the
+risk of major, backwards incompatible changes. Please note
 that this specification is downstream from the [Dat
 protocol](https://www.datprotocol.com/).
 
@@ -224,6 +224,14 @@ later on, so I erred on the side of strictness and parsimony -->
 <!-- + I am being non-specific about Dat protocol requirements to
 allow for flexibility down the line? I mean, I -->
 
+## Files
+
+All files in a module MUST be of an [open file format](https://en.wikipedia.org/wiki/List_of_open_formats); these file formats can be used and implemented by anyone. Wikipedia and Wikidata SHOULD be considered the authority in determining what file formats are considered open.
+
+In case of text based files, we RECOMMEND Hypertext Markup Language (HTML) files. In case of multiple versions of the same text file, the HTML version SHOULD be preferred as the main file.
+
+In order to remain self-contained, all files SHOULD reference information from valid relative paths within the module itself as much as possible. Absolute filepaths MUST NOT be used to load information.
+
 ## Examples
 
 The links used in the examples do not work and serve illustrative purposes only.
@@ -237,7 +245,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons/specs/module/0.0.0"}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0"}]
   },
   "p2pcommons": {
     "type": "content",
@@ -264,7 +272,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons/specs/module/0.0.0"}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0"}]
   },
   "p2pcommons": {
     "type": "profile",
