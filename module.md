@@ -230,7 +230,7 @@ All files in a module MUST be of an [open file format](https://en.wikipedia.org/
 
 In case of text based files, we RECOMMEND Hypertext Markup Language (HTML) files. In case of multiple versions of the same text file, the HTML version SHOULD be preferred as the main file.
 
-In order to remain self-contained, all files SHOULD reference information from valid relative paths within the module itself as much as possible. Absolute filepaths MUST NOT be used to load information.
+In order to remain self-contained, all references to local files SHOULD be valid relative file paths within the module itself. Files MAY reference URLs. It is RECOMMENDED to use references to module files instead of URLs as much as possible. Where URLs cannot be avoided, it is RECOMMENDED to use [persistent URLs](https://en.wikipedia.org/wiki/Persistent_uniform_resource_locator) as much as possible.
 
 ## Examples
 
