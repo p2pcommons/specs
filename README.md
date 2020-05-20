@@ -1,4 +1,4 @@
-# 🍐-to-🍐 commons specifications
+# 🍐-to-🍐 commons specifications <img src="https://github.com/p2pcommons/design/blob/master/p2pcommons-logomark-256.png" align="right" height="64" />
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 
