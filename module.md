@@ -1,4 +1,4 @@
-# Module specifications v0.3.0
+# Module specifications v0.3.2
 
 This document outlines specifications for module [initialization](#initialization),
 [metadata validation](#metadata), [registration](#registration), [verification](#verification), and for [module files](#files). It is a
@@ -52,15 +52,15 @@ RECOMMENDED to first initialize a new module and copy files into it.
 
 ## Metadata
 
-Each module MUST contain a `dat.json` file in its top directory
-(`./dat.json`). This file SHOULD be encoded UTF-8.
+Each module MUST contain a `index.json` file in its top directory
+(`./index.json`). This file SHOULD be encoded UTF-8.
 
 ### Object structure
 
-`dat.json` MUST be valid JSON consisting of a singular object and MUST 
+`index.json` MUST be valid JSON consisting of a singular object and MUST 
 NOT be an array of objects. 
 
-The `dat.json` object MUST contain the key/value pairs `title`,
+The `index.json` object MUST contain the key/value pairs `title`,
 `description`, `url`, `links`, `p2pcommons`.
 
 `links` MUST be an object with string keys and array values. It MUST
