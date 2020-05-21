@@ -245,7 +245,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0"}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0.html"}]
   },
   "p2pcommons": {
     "type": "content",
@@ -272,7 +272,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0"}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0.html"}]
   },
   "p2pcommons": {
     "type": "profile",
