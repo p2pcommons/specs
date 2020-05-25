@@ -14,8 +14,8 @@ This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}`. This 
 specification formulates bare minimum specifications to reduce the
 risk of major, backwards incompatible changes. Please note
-that this specification is downstream from the [Dat
-protocol](https://www.datprotocol.com/).
+that this specification is downstream from the [Hypercore
+protocol](https://hypercore-protocol.org/).
 
 This document is available under the [CC0 Public Domain
 Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
@@ -215,7 +215,7 @@ origin module in their `p2pcommons.contents` property.
 <!-- When not all destination modules include the versioned origin
 module --> <!-- in their `contents` property, -->
 
-Due to the peer-to-peer nature of the Dat protocol and its
+Due to the peer-to-peer nature of the Hypercore protocol and its
 cryptographic signing, this two-way verification is the highest degree
 of trust that is implemented in this specification.
 
