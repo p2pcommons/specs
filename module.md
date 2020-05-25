@@ -157,7 +157,7 @@ Hyperdrive keys SHOULD each refer to a valid module of
 an array of strings containing unique versioned Hyperdrive keys. These
 versioned Hyperdrive keys SHOULD each refer to a valid module of
 `p2pcommons.type: content` and MUST be registered by at least one of 
-its self-designated authors. If it contains this module's own Hyperdrive
+its listed authors. If it contains this module's own Hyperdrive
 key, it MUST refer to a preceding version.
 <!-- it is RECOMMENDED to only allow verified parents? -->
 
