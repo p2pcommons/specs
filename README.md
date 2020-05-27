@@ -1,6 +1,6 @@
-# 🍐-to-🍐 commons specifications
+# 🍐-to-🍐 commons specifications <img src="https://github.com/p2pcommons/design/blob/master/p2pcommons-logomark-256.png" align="right" height="64" />
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
 This repository contains all the peer-to-peer (🍐-to-🍐) commons specifications. These aim to make an interoperable commons infrastructure for module-based communication. This is the framework for implementations such as software development kits (see the [JavaScript implementation here](https://github.com/p2pcommons/sdk-js)) and user-facing applications like [Hypergraph](https://github.com/hypergraph-xyz/cli). The working group composition and meeting minutes are available in the [`@p2pcommons/working-group`](https://github.com/p2pcommons/working-group) repository.
 
@@ -10,8 +10,8 @@ This repository contains all the peer-to-peer (🍐-to-🍐) commons specificati
 
 | Specification | Version |
 | --- | --- |
-| [Module](./module.md) | `v0.3.1` |
-| [Interoperability](./interoperability.md) | `v0.2.2` | 
+| [Module](./module.md) | `v0.3.3` |
+| [Interoperability](./interoperability.md) | `v0.3.0` | 
 
 ## Contributors ✨
 

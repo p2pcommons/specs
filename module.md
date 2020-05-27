@@ -14,8 +14,8 @@ This specification is versioned using [Semantic Versioning
 2.0.0](https://semver.org/); `{MAJOR}.{MINOR}.{PATCH}`. This 
 specification formulates bare minimum specifications to reduce the
 risk of major, backwards incompatible changes. Please note
-that this specification is downstream from the [Dat
-protocol](https://www.datprotocol.com/).
+that this specification is downstream from the [Hypercore
+protocol](https://hypercore-protocol.org/).
 
 This document is available under the [CC0 Public Domain
 Dedication](https://creativecommons.org/publicdomain/zero/1.0/legalcode).
@@ -52,15 +52,15 @@ RECOMMENDED to first initialize a new module and copy files into it.
 
 ## Metadata
 
-Each module MUST contain a `dat.json` file in its top directory
-(`./dat.json`). This file SHOULD be encoded UTF-8.
+Each module MUST contain a `index.json` file in its top directory
+(`./index.json`). This file SHOULD be encoded UTF-8.
 
 ### Object structure
 
-`dat.json` MUST be valid JSON consisting of a singular object and MUST 
+`index.json` MUST be valid JSON consisting of a singular object and MUST 
 NOT be an array of objects. 
 
-The `dat.json` object MUST contain the key/value pairs `title`,
+The `index.json` object MUST contain the key/value pairs `title`,
 `description`, `url`, `links`, `p2pcommons`.
 
 `links` MUST be an object with string keys and array values. It MUST
@@ -217,7 +217,7 @@ origin module in their `p2pcommons.contents` property.
 <!-- When not all destination modules include the versioned origin
 module --> <!-- in their `contents` property, -->
 
-Due to the peer-to-peer nature of the Dat protocol and its
+Due to the peer-to-peer nature of the Hypercore protocol and its
 cryptographic signing, this two-way verification is the highest degree
 of trust that is implemented in this specification.
 
@@ -247,7 +247,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://00a4f2f18bb6cb4e9ba7c2c047c8560d34047457500e415d535de0526c6b4f23",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0"}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0.html"}]
   },
   "p2pcommons": {
     "type": "content",
@@ -274,7 +274,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0"}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/0.0.0.html"}]
   },
   "p2pcommons": {
     "type": "profile",
