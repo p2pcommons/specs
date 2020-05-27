@@ -1,4 +1,4 @@
-# Module specifications v0.3.2
+# Module specifications v0.3.3
 
 This document outlines specifications for module [initialization](#initialization),
 [metadata validation](#metadata), [registration](#registration), [verification](#verification), and for [module files](#files). It is a
@@ -155,8 +155,11 @@ Hyperdrive keys SHOULD each refer to a valid module of
 
 `p2pcommons.parents` (specific to `p2pcommons.type: content`) MUST be
 an array of strings containing unique versioned Hyperdrive keys. These
-versioned Hyperdrive keys SHOULD each refer to a valid module of
-`p2pcommons.type: content`. If it contains this module's own Hyperdrive
+versioned Hyperdrive keys MUST each refer to a valid module of
+`p2pcommons.type: content` and MUST be registered by at least one of 
+its listed authors' profiles at the time this value is set. The network state
+SHOULD be up-to-date before determining registration status.
+If `p2pcommons.parents` contains this module's own Hyperdrive
 key, it MUST refer to a preceding version.
 <!-- it is RECOMMENDED to only allow verified parents? -->
 
