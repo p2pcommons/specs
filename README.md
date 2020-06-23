@@ -1,4 +1,4 @@
-# 🍐-to-🍐 commons specifications <img src="https://github.com/p2pcommons/design/blob/master/p2pcommons-logomark-256.png" align="right" height="64" />
+# 🍐-to-🍐 commons specifications
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
@@ -10,8 +10,8 @@ This repository contains all the peer-to-peer (🍐-to-🍐) commons specificati
 
 | Specification | Version |
 | --- | --- |
-| [Module](./module.md) | `v0.3.3` |
-| [Interoperability](./interoperability.md) | `v0.3.0` | 
+| [Module](./module.md) | `v0.9.0` |
+| [Interoperability](./interoperability.md) | `v0.9.0` | 
 
 ## Contributors ✨
 
