@@ -263,7 +263,7 @@ The links used in the examples do not work and serve illustrative purposes only.
   "url": "hyper://cca6eb69a3ad6104ca31b9fee7832d74068db16ef2169eaaab5b48096e128342",
   "links": {
      "license": [{"href": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"}],
-     "spec": [{"href": "https://p2pcommons.com/specs/module/x.x.x."}]
+     "spec": [{"href": "https://p2pcommons.com/specs/module/x.x.x"}]
   },
   "p2pcommons": {
     "type": "profile",
