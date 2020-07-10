@@ -136,11 +136,9 @@ disambiguation.
 If `p2pcommons.type` is `content`, `p2pcommons.main` MUST be a string
 containing one relative path. If `p2pcommons.type` is `profile`,
 `p2pcommons.main` MUST be an empty string or a string containing one
-relative path. The path MUST NOT refer to a relative home or relative
-parent directory and MUST NOT refer to a dotfile (e.g., `./.example.json`).
-The relative path SHOULD refer to a valid file within the Hyperdrive
-(see also [Registration](#registration)). The `./` part of a relative path
-MAY be included.
+relative path. The path MUST refer to an existing file within the Hyperdrive
+and MUST NOT refer to a dotfile (e.g., `./.example.json`). The `./` part
+of a relative path MAY be included.
 
 If included, `p2pcommons.avatar` MUST be a string containing one relative path
 that MUST NOT refer to a relative home or relative parent directory. The
@@ -180,13 +178,9 @@ Registered modules must be of `p2pcommons.type: content` (i.e., origin
 module) and MUST be registered to modules of `p2pcommons.type:
 profile` (i.e., destination module).
 
-The `p2pcommons.main` of the origin module MUST refer to an existing path.
-Registration MUST NOT occur when the origin module contains invalid
-metadata. Registration SHOULD NOT occur if the `title` is empty or
-when `p2pcommons.authors` is empty.
-
-The destination module MUST be valid and writable. The metadata of the
-destination module SHOULD be valid prior to registration.
+Registration MUST NOT occur if the origin or destination modules are invalid.
+Registration SHOULD NOT occur if `p2pcommons.authors` is empty.
+The destination module MUST be writable.
 
 Registration MUST result in the addition of a valid Hyperdrive key to
 the `p2pcommons.contents` property of the destination module. The
