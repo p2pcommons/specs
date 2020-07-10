@@ -136,9 +136,10 @@ disambiguation.
 If `p2pcommons.type` is `content`, `p2pcommons.main` MUST be a string
 containing one relative path. If `p2pcommons.type` is `profile`,
 `p2pcommons.main` MUST be an empty string or a string containing one
-relative path. The path MUST refer to an existing file within the Hyperdrive
-and MUST NOT refer to a dotfile (e.g., `./.example.json`). The `./` part
-of a relative path MAY be included.
+relative path. The path MUST refer to an existing file within the Hyperdrive,
+MUST NOT refer to a relative home or relative parent directory and MUST NOT
+refer to a dotfile (e.g., `./.example.json`). The `./` part of a relative path
+MAY be included.
 
 If included, `p2pcommons.avatar` MUST be a string containing one relative path
 that MUST NOT refer to a relative home or relative parent directory. The
