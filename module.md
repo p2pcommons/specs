@@ -1,4 +1,4 @@
-# Module specifications v0.9.0
+# Module specifications v0.9.1
 
 This document outlines specifications for module [initialization](#initialization),
 [metadata validation](#metadata), [registration](#registration), [verification](#verification), and for [module files](#files). It is a
@@ -92,17 +92,17 @@ conditions are specified per name.
 | -------------         | ---------------- | --------------------------------------------------------------------------------------------------- |
 | `title`               | string           | [`^(?!\s*$).{1,300}$`](https://regex101.com/r/q7SL6z/1)                                             |
 | `description`         | string           |                                                                                                     |
-| `url`                 | string           | [`^(hyper:\/\/)(\w{64})$`](https://regex101.com/r/naEFVg/5)                                          |
+| `url`                 | string           | [`^(hyper:\/\/)([a-zA-Z0-9]{64})$`](https://regex101.com/r/naEFVg/6)                                          |
 | `links.license`       | array of objects |                                                                                                     |
 | `links.spec`          | array of objects |                                                                                                     |
 | `p2pcommons.type`     | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                          |
-| `p2pcommons.subtype`  | string           | [`^\w*$`](https://regex101.com/r/hDRGfc/2)                                                            |
-| `p2pcommons.main`     | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                       |
-| `p2pcommons.avatar`     | string           | [`^((?!\/) OR (\.\/))(?!~ OR \.).*(?<!\/)$`](https://regex101.com/r/MZXJnK/1)                       |
-| `p2pcommons.authors`  | array of strings | [`^(\w{64})$`](https://regex101.com/r/GQOim5/2)                                          |
-| `p2pcommons.parents`  | array of strings | [`^(\w{64})(\+\d+)$`](https://regex101.com/r/GQOim5/3)                                   |
-| `p2pcommons.follows`  | array of strings | [`^(\w{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/4)                                  |
-| `p2pcommons.contents` | array of strings | [`^(\w{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/4)                                  |
+| `p2pcommons.subtype`  | string           | [`^[A-Za-z0-9]*$`](https://regex101.com/r/hDRGfc/3)                                                            |
+| `p2pcommons.main`     | string           |                                                                                                     |
+| `p2pcommons.avatar`   | string           |                                                                                                     |
+| `p2pcommons.authors`  | array of strings | [`^([A-Za-z0-9]{64})$`](https://regex101.com/r/GQOim5/5)                                          |
+| `p2pcommons.parents`  | array of strings | [`^([A-Za-z0-9]{64})(\+\d+)$`](https://regex101.com/r/GQOim5/6)                                   |
+| `p2pcommons.follows`  | array of strings | [`^([A-Za-z0-9]{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/7)                                  |
+| `p2pcommons.contents` | array of strings | [`^([A-Za-z0-9]{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/7)                                  |
 
 `title` and `description` MUST be strings. `title` MUST contain a
 string between 1 and 300 characters long and MUST NOT consist only
@@ -133,11 +133,13 @@ hyphens, colons, etc). These MAY be application specific, but it is
 RECOMMENDED to use WikiData item identifiers for consistent
 disambiguation.
 
-`p2pcommons.main` MUST be a string containing one relative path but MUST
-NOT refer to a relative home or relative parent directory and MUST NOT
-refer to a dotfile (e.g., `./.example.json`). The relative path SHOULD refer
-to a valid file within the Hyperdrive (see also [Registration](#registration)).
-The `./` part of a relative path MAY be included.
+If `p2pcommons.type` is `content`, `p2pcommons.main` MUST be a string
+containing one relative path. If `p2pcommons.type` is `profile`,
+`p2pcommons.main` MUST be an empty string or a string containing one
+relative path. The path MUST refer to an existing file within the Hyperdrive,
+MUST NOT refer to a relative home or relative parent directory and MUST NOT
+refer to a dotfile (e.g., `./.example.json`). The `./` part of a relative path
+MAY be included.
 
 If included, `p2pcommons.avatar` MUST be a string containing one relative path
 that MUST NOT refer to a relative home or relative parent directory. The
@@ -177,18 +179,14 @@ Registered modules must be of `p2pcommons.type: content` (i.e., origin
 module) and MUST be registered to modules of `p2pcommons.type:
 profile` (i.e., destination module).
 
-The destination module MUST be valid and writable. The `p2pcommons.main` 
-MUST refer to an existing path. The metadata of the
-destination module SHOULD be valid prior to registration.
+Registration MUST NOT occur if the origin or destination modules are invalid.
+Registration SHOULD NOT occur if `p2pcommons.authors` is empty.
+The destination module MUST be writable.
 
 Registration MUST result in the addition of a valid Hyperdrive key to
 the `p2pcommons.contents` property of the destination module. The
 registered Hyperdrive key MUST be that of the specified origin
 module.
-
-Registration MUST NOT occur when the origin module contains invalid
-metadata. Registration SHOULD NOT occur if the `title` is empty or
-when `p2pcommons.authors` is empty.
 
 It is RECOMMENDED to verify whether the origin module contains the
 destination module's Hyperdrive key in the `authors` property (see
