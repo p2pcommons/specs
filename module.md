@@ -1,4 +1,4 @@
-# Module specifications v0.9.2
+# Module specifications v0.9.3
 
 This document outlines specifications for module [initialization](#initialization),
 [metadata validation](#metadata), [registration](#registration), [verification](#verification), and for [module files](#files). It is a
@@ -92,17 +92,17 @@ conditions are specified per name.
 | -------------         | ---------------- | --------------------------------------------------------------------------------------------------- |
 | `title`               | string           | [`^(?!\s*$).{1,300}$`](https://regex101.com/r/q7SL6z/1)                                             |
 | `description`         | string           |                                                                                                     |
-| `url`                 | string           | [`^(hyper:\/\/)([a-zA-Z0-9]{64})$`](https://regex101.com/r/naEFVg/6)                                          |
+| `url`                 | string           | [`^(hyper:\/\/)([a-fA-F0-9]{64})$`](https://regex101.com/r/naEFVg/8)                                          |
 | `links.license`       | array of objects |                                                                                                     |
 | `links.spec`          | array of objects |                                                                                                     |
 | `p2pcommons.type`     | string           | [`(profile OR content)$`](https://regex101.com/r/RRKb5N/1)                                          |
 | `p2pcommons.subtype`  | string           | [`^[A-Za-z0-9]*$`](https://regex101.com/r/hDRGfc/3)                                                            |
 | `p2pcommons.main`     | string           |                                                                                                     |
 | `p2pcommons.avatar`   | string           |                                                                                                     |
-| `p2pcommons.authors`  | array of strings | [`^([A-Za-z0-9]{64})$`](https://regex101.com/r/GQOim5/5)                                          |
-| `p2pcommons.parents`  | array of strings | [`^([A-Za-z0-9]{64})(\+\d+)$`](https://regex101.com/r/GQOim5/6)                                   |
-| `p2pcommons.follows`  | array of strings | [`^([A-Za-z0-9]{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/7)                                  |
-| `p2pcommons.contents` | array of strings | [`^([A-Za-z0-9]{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/7)                                  |
+| `p2pcommons.authors`  | array of strings | [`^([a-fA-F0-9]{64})$`](https://regex101.com/r/GQOim5/11)                                          |
+| `p2pcommons.parents`  | array of strings | [`^([a-fA-F0-9]{64})(\+\d+)$`](https://regex101.com/r/GQOim5/12)                                   |
+| `p2pcommons.follows`  | array of strings | [`^([a-fA-F0-9]{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/13)                                  |
+| `p2pcommons.contents` | array of strings | [`^([a-fA-F0-9]{64})(\+\d+)?$`](https://regex101.com/r/GQOim5/14)                                  |
 
 `title` and `description` MUST be strings. `title` MUST contain a
 string between 1 and 300 characters long and MUST NOT consist only
