@@ -11,7 +11,7 @@ This repository contains all the peer-to-peer commons (p2pcommons) specification
 | Specification | Version |
 | --- | --- |
 | [Module](./module.md) | [`v0.9.3`](https://p2pcommons.com/specs/module/0.9.3) |
-| [Interoperability](./interoperability.md) | [`v0.9.0`](https://p2pcommons.com/specs/interoperability/0.9.0) | 
+| [Interoperability](./interoperability.md) | [`v0.9.1`](https://p2pcommons.com/specs/interoperability/0.9.0) | 
 
 ## Contributors ✨
 
