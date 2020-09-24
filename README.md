@@ -1,4 +1,4 @@
-# p2pcommons specifications
+# p2pcommons specifications <img src="https://github.com/p2pcommons/design/raw/main/p2pcommons-logomark-1024-square.png" align="right" height="64" />
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
