@@ -4,14 +4,12 @@
 
 This repository contains all the peer-to-peer commons (p2pcommons) specifications. These aim to make an interoperable commons infrastructure for module-based communication. This is the framework for implementations such as software development kits (see the [JavaScript implementation here](https://github.com/p2pcommons/sdk-js)) and user-facing applications like [Hypergraph](https://github.com/hypergraph-xyz/cli). The working group composition and meeting minutes are available in the [`@p2pcommons/working-group`](https://github.com/p2pcommons/working-group) repository.
 
-:warning: **Work In Progress; NOT STABLE YET**
-
 ## Overview
 
 | Specification | Version |
 | --- | --- |
-| [Module](./module.md) | [`v0.9.3`](https://p2pcommons.com/specs/module/0.9.3) |
-| [Interoperability](./interoperability.md) | [`v0.9.2`](https://p2pcommons.com/specs/interoperability/0.9.2) | 
+| [Module](./module.md) | [`v1.0.0`](https://p2pcommons.com/specs/module/1.0.0) |
+| [Interoperability](./interoperability.md) | [`v1.0.0`](https://p2pcommons.com/specs/interoperability/1.0.0) | 
 
 ## Contributors ✨
 
